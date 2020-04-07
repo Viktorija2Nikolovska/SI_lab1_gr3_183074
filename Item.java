@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 class Item {
 	int id;
 	String name;
@@ -56,4 +59,55 @@ class Item {
 		return tax;
 		//TODO
 	}
+}
+
+
+class Receipt extends Item {
+	List<Item> list=new ArrayList<>();
+
+	List<Item> addElements(){
+		Item item=new Item(id,name,price,A);
+		list.add(item);
+		return list;
+
+	}
+
+	List<Item> deleteElements(List<Item> list) {
+		Item item=new Item(id,name,price,A);
+
+		for (int i=0;i<list.size();i++) {
+
+			if (item.price<=30)
+				list.remove(item);
+
+		}
+
+		return list ;
+	}
+
+	double totalSum(List<Item>list){
+		double cena=0;
+
+		for (Item item :list)
+		{
+			cena+=item.getPrice();
+		}
+
+		return cena;
+
+	}
+
+	double totalTax(List<Item>list) {
+		double total = 0;
+		for (Item item : list){
+
+			total += item.taxReturn();
+		}
+
+		return total;
+
+
+	}
+
+
 }
